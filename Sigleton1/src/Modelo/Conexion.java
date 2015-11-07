@@ -24,6 +24,7 @@ public class Conexion {
      static final  String ST_URL_BASEDATOS = "jdbc:postgresql://localhost:5432/ProyectoEncuestaDocentePracticasDePruebas";//Formato (jdbc:postgresql//nombreHost:numeroPuerto/nombreDeBaseDeDatos
      static final  String ST_NOMBRE_USUARIO = "postgres";
      static final  String ST_CONTRASENIA = "12345ca9";
+     static boolean estadoSingleton;
      
      private Statement instruccion;
      private ResultSet conjuntoDeResultados;
@@ -42,7 +43,7 @@ public class Conexion {
               
               instruccion = conexion.createStatement();
               System.out.println("Conexion exitosa a esquema ProyectoEncuesta"); 
-              
+              estadoSingleton = true;
         } catch (Exception e) {
               System.out.println("error en la conexion");
         }      
@@ -51,7 +52,7 @@ public class Conexion {
     
     public static Conexion  getConexion(){
         
-      if(conexionSigleton==null){
+      if(conexionSigleton==null|| !estadoSingleton){
          conexionSigleton  = new Conexion();
       }
       return conexionSigleton;
@@ -102,7 +103,7 @@ public class Conexion {
 	  	try {
                    
 		   conexion.close();
-                  
+                   estadoSingleton=false;
 		}catch (Exception  e) {
 		        JOptionPane.showMessageDialog(null,"Ha ocurrido un error al intentar cerrar la conexion con postgres. Error:" + e.getMessage());                                   
 		}
