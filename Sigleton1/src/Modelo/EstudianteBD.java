@@ -76,7 +76,7 @@ public class EstudianteBD {
         }catch(SQLException e){
           JOptionPane.showMessageDialog(null,e.getMessage());
         }
-        //conexion.cerrarConexion();
+        conexion.cerrarConexion();
        
      return estudiante;
     }
@@ -118,7 +118,7 @@ public class EstudianteBD {
         }catch(SQLException e){
           JOptionPane.showMessageDialog(null,e.getMessage());
         }
-        //conexion.cerrarConexion();
+        conexion.cerrarConexion();
         
        
      return clEstudiante;
@@ -148,7 +148,7 @@ public class EstudianteBD {
         }catch(SQLException e){
           JOptionPane.showMessageDialog(null,e.getMessage());
         }
-        //conexion.cerrarConexion();        
+        conexion.cerrarConexion();        
          return clEstudiante;
     }
     
@@ -172,7 +172,7 @@ public class EstudianteBD {
         }catch(Exception e){
            JOptionPane.showMessageDialog(null,e.getMessage());
         }
-        //conexion.cerrarConexion();        
+        conexion.cerrarConexion();        
       return inResultado;
     }    
    
