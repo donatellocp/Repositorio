@@ -73,7 +73,7 @@ public class AdministradorBD {
         }catch(SQLException e){
           JOptionPane.showMessageDialog(null,e.getMessage());
         }
-        //conexion.cerrarConexion();
+        conexion.cerrarConexion();
        
       return administrador;
     }
@@ -106,7 +106,7 @@ public class AdministradorBD {
         }catch(SQLException e){
           JOptionPane.showMessageDialog(null,e.getMessage());
         }
-      //  conexion.cerrarConexion();
+       conexion.cerrarConexion();
         
       return clAdministrador;
     }
@@ -132,7 +132,7 @@ public class AdministradorBD {
         }catch(Exception e){
           JOptionPane.showMessageDialog(null,e.getMessage());
         }
-        //conexion.cerrarConexion();        
+        conexion.cerrarConexion();        
       return inResultado;
     }
      
